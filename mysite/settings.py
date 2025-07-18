@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-)c&!**#kxlnx=pk!2xhxlyiayyu!l8wcq^7iw-vt=r-1a23wc6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.onrender.com']
 
 
 # Application definition
@@ -76,19 +77,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres_id7n',
-        'USER': 'postgres_id7n_user',
-        'PASSWORD': '7akesXm6eR0zR1Hk1NVhbp5i0qKQ46D8',
-        'HOST': 'dpg-d1so0mili9vc73c9p770-a.oregon-postgres.render.com',
-        'PORT': '5432',
-        'OPTIONS': {
-            'sslmode': 'require',
-        }
-    }
+    'default': dj_database_url.config(
+        default='postgresql://postgres_id7n_user:7akesXm6eR0zR1Hk1NVhbp5i0qKQ46D8@dpg-d1so0mili9vc73c9p770-a.oregon-postgres.render.com/postgres_id7n',
+        conn_max_age=600,
+        ssl_require=True
+    )
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
