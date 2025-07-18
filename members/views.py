@@ -14,7 +14,7 @@ def members(request):
     return render(request, "all_members.html", context)
 
 
-def details(request, id):
-    mymember = Members.objects.get(id=id)
+def details(request, slug):
+    mymember = Members.objects.get(slug=slug)
     context = {'mymember': mymember}
     return render(request, "details.html", context)
