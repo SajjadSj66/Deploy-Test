@@ -15,7 +15,7 @@
                         {% if forloop.first %}
                             style="background-color: lightblue"
                         {% endif %}
-                ><a href="details/{{ x.id }}">{{ x.slug }} {{ x.first_name }} {{ x.last_name }}</a></li>
+                ><a onclick="window.location" href="details/{{ x.slug }}">{{ x.first_name }} {{ x.last_name }}</a></li>
             {% endfor %}
         </ul>
     </div>
