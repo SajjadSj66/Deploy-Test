@@ -9,7 +9,7 @@ def main(request):
 
 
 def members(request):
-    mymembers = Members.objects.all().values()
+    mymembers = Members.objects.all()
     context = {'mymembers': mymembers}
     return render(request, "all_members.html", context)
 
