@@ -13,4 +13,4 @@ python manage.py migrate
 # جمع‌آوری استاتیک‌ها
 python manage.py collectstatic --noinput
 
-python manage.py createsu
+#python manage.py createsu
